@@ -12,12 +12,16 @@
    
     <div class="bord">
         <h3 class="space login_account">LOGIN</h3>
-        <input type="text" class="space inpt_length" id="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
 
-        <input type="password" class="space inpt_length" id="pwsd" [(ngModel)]="pswd"  placeholder="Password">
+<form (ngSubmit)="login()">
+
+        <input type="text" class="space inpt_length" id="acno" name="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
+
+        <input type="password" class="space inpt_length" id="pwsd" name="pswd" [(ngModel)]="pswd"  placeholder="Password">
         <p class="error" id="err"></p><br>
-        <button type="button" class="btn btn-danger space login_buttn" (click)="login()">LOGIN</button> &nbsp;&nbsp;
+        <button type="button" type="submit" class="btn btn-danger space login_buttn" >LOGIN</button> &nbsp;&nbsp;
         <a routerLink="register">Sign Up</a>
+    </form>
 
     </div>
 </div>
