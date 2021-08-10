@@ -1,0 +1,24 @@
+<nav class="navbar nav">
+    <div class="container-fluid">
+        <p style="font-size:  xx-large;" class="nav_title">BANK Login </p>
+    </div>
+</nav>
+
+
+<h1 style="color: #ae2626;">{{aim}}</h1>
+
+
+<div class="container">
+   
+    <div class="bord">
+        <h3 class="space login_account">LOGIN</h3>
+        <input type="text" class="space inpt_length" id="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
+
+        <input type="password" class="space inpt_length" id="pwsd" [(ngModel)]="pswd"  placeholder="Password">
+        <p class="error" id="err"></p><br>
+        <button type="button" class="btn btn-danger space login_buttn" (click)="login()">LOGIN</button> &nbsp;&nbsp;
+        <a routerLink="register">Sign Up</a>
+
+    </div>
+</div>
+

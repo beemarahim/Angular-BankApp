@@ -1,0 +1,25 @@
+<nav class="navbar nav">
+    <div class="container-fluid">
+        <p style="font-size:  xx-large;" class="nav_title">BANK USER REGISTRATION </p>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container">
+   
+    <div class="bord">
+        <h3 class="space login_account">REGISTER</h3>
+        <input type="text" class="space inpt_length" id="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
+        <input type="text" class="space inpt_length" id="uname" [(ngModel)]="uname"   placeholder="User Name"><br>
+
+        <input type="password" class="space inpt_length" id="pwsd" [(ngModel)]="pswd"  placeholder="Password">
+        <p class="error" id="err"></p><br>
+        <button type="button" class="btn btn-danger space login_buttn" (click)="register()">REGISTER</button>
+
+    </div>
+</div>
+
+
