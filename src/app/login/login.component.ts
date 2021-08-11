@@ -37,21 +37,14 @@ export class LoginComponent implements OnInit {
         var pswd = this.pswd;
     // console.log(pswd);
     
-      let accDetails = this.ds.users
+    var result = this.ds.login(acno,pswd)
     
-      if(acno in accDetails){
-        if(pswd==accDetails[acno]["password"]){
-          alert("Login Succesfull")
-          this.router.navigateByUrl("dashboard");
-        }
-        else{
-          alert("Invalid Password")
-        }
-    
-      }
-    else{
-      alert("Invalid Account Number")
-    }
+    if(result){
+      
+        alert("Login Succesfull")
+        this.router.navigateByUrl("dashboard");
+     
+  }
         
       }
 

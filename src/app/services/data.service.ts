@@ -35,4 +35,78 @@ export class DataService {
     }
 
   }
+
+login(acno:any,pswd:any){
+
+  let accDetails = this.users
+    
+  if(acno in accDetails){
+    if(pswd==accDetails[acno]["password"]){
+
+      return true
+     
+    }
+    else{
+      alert("Invalid Password")
+ return false     
+    }
+
+  }
+else{
+  alert("Invalid Account Number")
+  return false
+}
+   
+
+}
+
+deposit(acno:any,pswd:any,amount:any){
+
+  let accDetails=this.users
+
+  var amt = parseInt(amount)
+  if(acno in accDetails){
+    if(pswd == accDetails[acno]["password"]){
+      accDetails[acno]["balance"]+=amt
+      return accDetails[acno]["balance"]
+    }
+    else{
+      alert("Invalid Password")
+ return false
+    }
+  }
+  else{
+    alert("Invalid Account Number")
+    return false 
+  }
+
+}
+
+withdarw(acno1:any,pswd1:any,amount1:any){
+  let accDetails = this.users
+  var amt1 = parseInt(amount1)
+  if(acno1 in accDetails){
+    if(pswd1 == accDetails[acno1]["password"]){
+      if( accDetails[acno1]["balance"]>amt1){
+        accDetails[acno1]["balance"]-=amt1
+        return accDetails[acno1]["balance"]
+      }
+      else{
+        alert("Insufficient balance")
+        return false
+      }
+      
+
+    }
+    else{
+      alert("Invalid Password")
+      return false
+    }
+  }
+  else{
+    alert("Invalid Account Number")
+    return false
+  }
+}
+
 }
