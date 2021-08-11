@@ -1,1 +1,51 @@
-<p>dashboard works!</p>
+<nav class="navbar nav">
+    <div class="container-fluid">
+        <p style="font-size:  xx-large;" class="nav_title">BANK USER DASHBOARD </p>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container">
+   
+    <div class="bord">
+        <h3 style="margin-left: 23%;" class="space login_account">DEPOSIT FORM</h3>
+
+        <form (ngSubmit)="deposit()">
+
+        <input type="text" class="space inpt_length" id="acno" name="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
+
+        <input type="password" class="space inpt_length" id="pswd" name="pswd" [(ngModel)]="pswd"  placeholder="Password">
+
+        <input type="text" class="space inpt_length" id="amount" name="amount" [(ngModel)]="amount"   placeholder="Amount"><br>
+
+        <p class="error" id="err"></p><br>
+        <button type="button" class="btn btn-danger space login_buttn" type="submit">Deposit</button>
+
+    </form>
+    </div>
+</div>
+
+<div class="container">
+   
+    <div class="bord">
+        <h3  style="margin-left: 22%;" class="space login_account">WITHDRAW FORM</h3>
+
+        <form (ngSubmit)="withdraw()">
+
+        <input type="text" class="space inpt_length" id="acno1" name="acno1" [(ngModel)]="acno1"   placeholder="Account Number"><br>
+
+        <input type="password" class="space inpt_length" id="pswd1" name="pswd1" [(ngModel)]="pswd1"  placeholder="Password">
+
+        <input type="text" class="space inpt_length" id="amount1" name="amount1" [(ngModel)]="amount1"   placeholder="Amount"><br>
+
+        <p class="error" id="err"></p><br>
+        <button type="button" class="btn btn-danger space login_buttn" type="submit">Withdraw</button>
+
+    </form>
+    </div>
+</div>
+
+

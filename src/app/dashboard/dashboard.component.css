@@ -1,0 +1,35 @@
+.nav{
+    background-color: #ae2626;
+  
+  }
+  .nav_title{
+    color: white;
+  }
+  .inpt_length{
+    width:450px ;
+    background-color:#a6a3a2 ;
+  
+  }
+  .space {
+    margin-bottom: 20px;
+    margin-left: 50px;
+   
+   border-width: 2px;
+    
+}
+.bord{
+
+    margin-top: 50px;
+    margin-left: 29%;
+ 
+}
+.login_buttn{
+    margin-left: 30%;
+  }
+  .login_account{
+    margin-left: 29%;
+    color:#ae2626;
+    margin-top: 20px;
+    font-weight: bolder;
+  }
+  
