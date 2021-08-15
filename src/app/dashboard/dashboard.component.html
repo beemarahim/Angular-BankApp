@@ -5,6 +5,9 @@
 </nav>
 
 
+<div><h2 style="color: #ae2626; margin-top: 15px;">Welcome<span style="font-weight: 800; font-style: italic; "> {{user}}</span></h2></div>
+
+
 
 
 
@@ -13,14 +16,19 @@
     <div class="bord">
         <h3 style="margin-left: 23%;" class="space login_account">DEPOSIT FORM</h3>
 
-        <form (ngSubmit)="deposit()">
+        <form [formGroup]="depositForm" (ngSubmit)="deposit()">
 
-        <input type="text" class="space inpt_length" id="acno" name="acno" [(ngModel)]="acno"   placeholder="Account Number"><br>
+        <input type="text" class="space inpt_length" id="acno" name="acno" formControlName="acno"   placeholder="Account Number"><br>
+        <div *ngIf="(this.depositForm.get('acno')?.touched || this.depositForm.get('acno')?.dirty) && this.depositForm.get('acno')?.errors"
+        class="error">Invalid Account Number</div>
 
-        <input type="password" class="space inpt_length" id="pswd" name="pswd" [(ngModel)]="pswd"  placeholder="Password">
+        <input type="password" class="space inpt_length" id="pswd" name="pswd" formControlName="pswd"  placeholder="Password"><br>
+        <div *ngIf="(this.depositForm.get('pswd')?.touched || this.depositForm.get('pswd')?.dirty) && this.depositForm.get('pswd')?.errors"
+                class="error">Invalid Password</div>
 
-        <input type="text" class="space inpt_length" id="amount" name="amount" [(ngModel)]="amount"   placeholder="Amount"><br>
-
+        <input type="text" class="space inpt_length" id="amount" name="amount" formControlName="amount"   placeholder="Amount"><br>
+        <div *ngIf="(this.depositForm.get('amount')?.touched || this.depositForm.get('amount')?.dirty) && this.depositForm.get('amount')?.errors"
+        class="error">Invalid Amount</div>
         <p class="error" id="err"></p><br>
         <button type="button" class="btn btn-danger space login_buttn" type="submit">Deposit</button>
 
@@ -33,19 +41,22 @@
     <div class="bord">
         <h3  style="margin-left: 22%;" class="space login_account">WITHDRAW FORM</h3>
 
-        <form (ngSubmit)="withdraw()">
+        <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
 
-        <input type="text" class="space inpt_length" id="acno1" name="acno1" [(ngModel)]="acno1"   placeholder="Account Number"><br>
-
-        <input type="password" class="space inpt_length" id="pswd1" name="pswd1" [(ngModel)]="pswd1"  placeholder="Password">
-
-        <input type="text" class="space inpt_length" id="amount1" name="amount1" [(ngModel)]="amount1"   placeholder="Amount"><br>
-
+        <input type="text" class="space inpt_length" id="acno1" name="acno1" formControlName="acno1"   placeholder="Account Number"><br>
+        <div *ngIf="(this.withdrawForm.get('acno1')?.touched || this.withdrawForm.get('acno1')?.dirty) && this.withdrawForm.get('acno1')?.errors"
+        class="error">Invalid Account Number</div>
+        <input type="password" class="space inpt_length" id="pswd1" name="pswd1" formControlName="pswd1"  placeholder="Password">
+        <div *ngIf="(this.withdrawForm.get('pswd1')?.touched || this.withdrawForm.get('pswd1')?.dirty) && this.withdrawForm.get('pswd1')?.errors"
+        class="error">Invalid Password</div>
+        <input type="text" class="space inpt_length" id="amount1" name="amount1" formControlName="amount1"   placeholder="Amount"><br>
+        <div *ngIf="(this.withdrawForm.get('amount1')?.touched || this.withdrawForm.get('amount1')?.dirty) && this.withdrawForm.get('amount1')?.errors"
+        class="error">Invalid Amount</div>
         <p class="error" id="err"></p><br>
         <button type="button" class="btn btn-danger space login_buttn" type="submit">Withdraw</button>
 
     </form>
     </div>
 </div>
-
+<a routerLink="/transaction" class="transactionLink" style="color: #ae2626; font-weight: 900; text-decoration: none; margin-left: 635px; font-size: larger;">Transaction History</a>
 

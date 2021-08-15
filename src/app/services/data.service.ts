@@ -5,15 +5,48 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  currentUser=""
+
   users:any = {
-    1000: {acno:1000, username:"Beema", password:"userone", balance:5000},
-    1001: {acno:1001, username:"Minnu", password:"usertwo", balance:6000},
-    1002: {acno:1002, username:"Don", password:"userthree", balance:7000},
-    1003: {acno:1003, username:"Tom", password:"userfour", balance:8000}
+    1000: {acno:1000, username:"Beema", password:"userone", balance:5000, transaction:[]},
+    1001: {acno:1001, username:"Minnu", password:"usertwo", balance:6000, transaction:[]},
+    1002: {acno:1002, username:"Don", password:"userthree", balance:7000, transaction:[]},
+    1003: {acno:1003, username:"Tom", password:"userfour", balance:8000, transaction:[]}
   }
   
 
-  constructor() { }
+  constructor() {
+   this.getDetails()
+   }
+
+  saveDetails(){
+    localStorage.setItem("users",JSON.stringify(this.users))
+
+    if(this.currentUser){
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+    }
+
+      }
+
+      getDetails(){
+
+        if(localStorage.getItem("users")){
+          this.users =  JSON.parse(localStorage.getItem("users") || '')
+
+        }
+    
+     if(localStorage.getItem("currentUser")){
+      this.currentUser = JSON.parse(localStorage.getItem("currentUser") || '')
+
+     }
+     
+    
+    }
+
+
+    getTransaction(){
+      
+    }
 
   register(acno:any, username:any, password:any){
 
@@ -28,9 +61,11 @@ export class DataService {
         acno,
         username,
         password,
-        balance:0
+        balance:0,
+        transaction:[]
       }
-       console.log(accDetails)
+      //  console.log(accDetails)
+      this.saveDetails()
       return true
     }
 
@@ -42,6 +77,9 @@ login(acno:any,pswd:any){
     
   if(acno in accDetails){
     if(pswd==accDetails[acno]["password"]){
+
+this.currentUser=accDetails[acno]["username"]
+this.saveDetails()
 
       return true
      
@@ -68,6 +106,11 @@ deposit(acno:any,pswd:any,amount:any){
   if(acno in accDetails){
     if(pswd == accDetails[acno]["password"]){
       accDetails[acno]["balance"]+=amt
+      accDetails[acno].transaction.push({
+        amount:amt,
+        type:"CREDIT"
+      })
+      this.saveDetails()
       return accDetails[acno]["balance"]
     }
     else{
@@ -89,6 +132,11 @@ withdarw(acno1:any,pswd1:any,amount1:any){
     if(pswd1 == accDetails[acno1]["password"]){
       if( accDetails[acno1]["balance"]>amt1){
         accDetails[acno1]["balance"]-=amt1
+        accDetails[acno1].transaction.push({
+          amount:amt1,
+          type:"DEDIT"
+        })
+        this.saveDetails()
         return accDetails[acno1]["balance"]
       }
       else{

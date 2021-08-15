@@ -32,4 +32,8 @@
     margin-top: 20px;
     font-weight: bolder;
   }
-  
+  .error{
+    color: red;
+    margin-left: 50px;
+    margin-bottom: 25px;
+  }

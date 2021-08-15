@@ -24,12 +24,19 @@
  
 }
 .login_buttn{
+ margin-top: 5px;
     margin-left: 30%;
+    
   }
   .login_account{
     margin-left: 29%;
     color:#ae2626;
     margin-top: 20px;
     font-weight: bolder;
+  }
+  .error{
+    color: red;
+    margin-left: 50px;
+    margin-bottom: 25px;
   }
   
