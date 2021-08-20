@@ -16,14 +16,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr style="font-size: larger; text-align: center;">
-                <th>1000</th>
-                <th>Credit</th>
+            <tr *ngFor="let transaction of transactions" style="font-size: larger; text-align: center;">
+                <th> {{transaction.amount}} </th>
+                <th> {{transaction.type}} </th>
             </tr>
         </tbody>
     </table>
     <br>
-    <a routerLink="/dashboard" class="transactionLink" style="color: #ae2626; font-weight: 900; text-decoration: none; margin-left: 690px; font-size: larger;">HOME</a>
+    <a routerLink="/dashboard"  style="color: #ae2626; font-weight: 900; text-decoration: none; margin-left: 690px; font-size: larger;">HOME</a>
   
 
 
